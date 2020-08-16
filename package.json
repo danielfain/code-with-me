@@ -11,6 +11,7 @@
     "socket.io-client": "^2.3.0"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "server": "node src/server/server.js",
+    "client": "node src/client/client.js"
   }
 }
