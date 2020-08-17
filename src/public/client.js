@@ -1,12 +1,12 @@
 const socket = io();
 
-const editor = document.getElementById('editor');
+const editorDiv = document.getElementById('editor');
 
-editor.addEventListener('keyup', event => {
-    const text = editor.value;
+editorDiv.addEventListener('keyup', event => {
+    const text = editor.getValue();
     socket.send(text);
 });
 
 socket.on('message', data => {
-    editor.value = data;
+    editor.setValue(data);
 });

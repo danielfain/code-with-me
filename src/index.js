@@ -10,20 +10,21 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-var prevMessage = "";
+var prevMessage = "def main():";
 
 io.on('connection', socket => {
     console.log(`${socket.id} connected.`);
     // The emit below syncs the new client with current state
     socket.emit('message', prevMessage);
+
     socket.on('message', event => {
         prevMessage = event;
         socket.broadcast.emit('message', event);
     });
-});
 
-io.on('disconnect', event => {
-    console.log('Someone left.');
+    socket.once('disconnect', () => {
+        console.log(`${socket.id} left.`);
+    });
 });
 
 http.listen(port, () => console.log(`Server listening on port ${port}`));
