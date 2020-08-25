@@ -7,10 +7,24 @@ editor.session.setMode("ace/mode/python");
 const editorDiv = document.getElementById('editor');
 
 editorDiv.addEventListener('keyup', event => {
-    const text = editor.getValue();
-    socket.send(text);
+    const code = editor.getValue();
+    socket.emit('code-update', code);
 });
 
-socket.on('message', data => {
-    editor.setValue(data);
+const languageSelect = document.getElementById('language-select');
+
+languageSelect.addEventListener('change', event => {
+    const language = languageSelect.value;
+    editor.session.setMode('ace/mode/' + language.toLowerCase());
+    socket.emit('language-change', language);
+});
+
+socket.on('code-update', code => {
+    editor.setValue(code);
+});
+
+socket.on('language-change', language => {
+    console.log(language);
+    languageSelect.value = language;
+    editor.session.setMode('ace/mode/' + language.toLowerCase());
 });

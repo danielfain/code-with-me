@@ -10,16 +10,19 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-var prevMessage = "def main():";
+var currentCode = "";
 
 io.on('connection', socket => {
-    console.log(`${socket.id} connected.`);
     // The emit below syncs the new client with current state
-    socket.emit('message', prevMessage);
+    socket.emit('code-update', currentCode);
 
-    socket.on('message', event => {
-        prevMessage = event;
-        socket.broadcast.emit('message', event);
+    socket.on('code-update', code => {
+        currentCode = code;
+        socket.broadcast.emit('code-update', code);
+    });
+
+    socket.on('language-change', language => {
+        socket.broadcast.emit('language-change', language);
     });
 
     socket.once('disconnect', () => {
