@@ -1,0 +1,35 @@
+html {
+    background-color: lightgray;
+}
+
+#editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.module-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.editor-container {
+    position: relative;
+    width: 600px;
+    height: 800px;
+    margin-left: 1vw;
+    margin-top: 1vh;
+}
+
+.select {
+    margin-left: 1vw;
+    margin-top: 1vh;
+}
+
+.title {
+    padding-left: 1vw;
+    padding-top: 1vh;
+}
