@@ -11,10 +11,12 @@ app.get('/', (req, res) => {
 });
 
 var currentCode = "";
+var currentLanguage = "Python";
 
 io.on('connection', socket => {
     // The emit below syncs the new client with current state
     socket.emit('code-update', currentCode);
+    socket.emit('language-change', currentLanguage);
 
     socket.on('code-update', code => {
         currentCode = code;
@@ -22,11 +24,8 @@ io.on('connection', socket => {
     });
 
     socket.on('language-change', language => {
+        currentLanguage = language;
         socket.broadcast.emit('language-change', language);
-    });
-
-    socket.once('disconnect', () => {
-        console.log(`${socket.id} left.`);
     });
 });
 

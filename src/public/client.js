@@ -1,8 +1,7 @@
 const socket = io();
 
 const editor = ace.edit("editor");
-editor.setTheme("ace/theme/solarized_dark");
-editor.session.setMode("ace/mode/python");
+editor.setTheme("ace/theme/dracula");
 
 const editorDiv = document.getElementById('editor');
 
@@ -24,7 +23,6 @@ socket.on('code-update', code => {
 });
 
 socket.on('language-change', language => {
-    console.log(language);
     languageSelect.value = language;
     editor.session.setMode('ace/mode/' + language.toLowerCase());
 });
