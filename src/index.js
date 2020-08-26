@@ -18,8 +18,6 @@ io.on('connection', socket => {
     socket.emit('code-update', currentCode);
     socket.emit('language-change', currentLanguage);
 
-    var addedUser = false;
-
     socket.on('code-update', code => {
         currentCode = code;
         socket.broadcast.emit('code-update', code);

@@ -1,7 +1,7 @@
 {
   "name": "code-with-me",
   "version": "1.0.0",
-  "description": "Real-time code collaboration with a shared editor",
+  "description": "Real-time code collaboration with a shared editor and chat box",
   "repository": "git@github.com:danielfain/code-with-me.git",
   "author": "Daniel Fain",
   "license": "MIT",

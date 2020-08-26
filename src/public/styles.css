@@ -9,7 +9,7 @@ html, body {
     grid-template-rows: 10% 50px;
     grid-template-areas: 
         "title . ."
-        ". . dropdown"
+        "chat-title . dropdown"
         "chat . editor";
 }
 
@@ -83,4 +83,11 @@ html, body {
 
 #messages li {
     color: azure;
+}
+
+.chat-title {
+    display: flex;
+    grid-area: chat-title;
+    color: azure;
+    justify-content: center;
 }
