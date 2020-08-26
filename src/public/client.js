@@ -2,6 +2,7 @@ const socket = io();
 
 const editor = ace.edit("editor");
 editor.setTheme("ace/theme/dracula");
+editor.setShowPrintMargin(false);
 
 const editorDiv = document.getElementById('editor');
 

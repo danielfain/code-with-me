@@ -5,12 +5,12 @@ html, body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 47.5% 5%;
-    grid-template-rows: 10% 50px;
+    grid-template-columns: 5% 25% 5% 60% 5%;
+    grid-template-rows: 50px;
     grid-template-areas: 
-        "title . ."
-        "chat-title . dropdown"
-        "chat . editor";
+        ". chat-title . dropdown"
+        ". chat . editor";
+    overflow: hidden;
 }
 
 #editor {
@@ -28,31 +28,34 @@ html, body {
     grid-area: editor;
     border-style: ridge;
     border-color: azure;
-    margin-right: 10%;
+}
+
+.select-container {
+    grid-area: dropdown;
+    width: inherit;
+    margin-bottom: 1vh;
 }
 
 .selectpicker {
-    grid-area: dropdown;
-    width: fit-content;
-    margin-bottom: 1vh;
     background-color: azure;
 }
 
-.title {
+.title-container {
     display: flex;
+    justify-content: center;
+}
+
+.title {
     color: azure;
-    grid-area: title;
-    align-items: center;
-    margin-left: 1vw;
+    margin: 1rem;
 }
 
 .chat-container {
     display: grid;
-    grid-template-columns: 15% auto 15%;
     grid-template-rows: 50%;
     grid-template-areas: 
-        ". box ."
-        ". input .";
+        "box"
+        "input";
     grid-area: chat;
 }
 

@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="grid-container">
+    <div class="title-container">
         <h1 class="title">Code With Me</h1>
+    </div>
+    <div class="grid-container">
         <h3 class="chat-title">Chat</h2>
         <div class="chat-container">
             <ul id="messages"></ul>
@@ -22,11 +24,13 @@
         <div class="editor-container">
             <div id="editor"></div>
         </div>
-        <select id="language-select" class="selectpicker">
-            <option>Python</option>
-            <option>JavaScript</option>
-            <option>Java</option>
-        </select> 
+        <div class="select-container row text-center justify-content-center">
+            <select id="language-select" class="selectpicker">
+                <option>Python</option>
+                <option>JavaScript</option>
+                <option>Java</option>
+            </select> 
+        </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous"></script>
