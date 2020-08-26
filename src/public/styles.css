@@ -5,12 +5,12 @@ html, body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 50%;
+    grid-template-columns: 47.5% 5%;
     grid-template-rows: 10% 50px;
     grid-template-areas: 
-        "title ."
-        ". dropdown"
-        ". editor";
+        "title . ."
+        ". . dropdown"
+        "chat . editor";
 }
 
 #editor {
@@ -23,17 +23,19 @@ html, body {
 
 .editor-container {
     position: relative;
-    width: 75%;
+    width: inherit;
     height: 75vh;
     grid-area: editor;
     border-style: ridge;
     border-color: azure;
+    margin-right: 10%;
 }
 
 .selectpicker {
     grid-area: dropdown;
     width: fit-content;
     margin-bottom: 1vh;
+    background-color: azure;
 }
 
 .title {
@@ -42,4 +44,43 @@ html, body {
     grid-area: title;
     align-items: center;
     margin-left: 1vw;
+}
+
+.chat-container {
+    display: grid;
+    grid-template-columns: 15% auto 15%;
+    grid-template-rows: 50%;
+    grid-template-areas: 
+        ". box ."
+        ". input .";
+    grid-area: chat;
+}
+
+.form-container {
+    display: flex;
+    grid-area: input;
+    justify-content: center;
+}
+
+.form-container button {
+    background-color: azure;
+}
+
+.form-container input {
+    background-color: azure;
+}
+
+#messages {
+    grid-area: box;
+    background-color: #282a36;
+    list-style-type: none;
+    border-style: ridge;
+    border-color: azure;
+    padding: 0;
+    padding-left: 1vw;
+    overflow: auto;
+}
+
+#messages li {
+    color: azure;
 }
