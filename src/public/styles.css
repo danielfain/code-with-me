@@ -1,5 +1,16 @@
-html {
-    background-color: lightgray;
+html, body {
+    background-color: rgb(22, 22, 29);
+    font-family: 'Manrope', sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 10% 50px;
+    grid-template-areas: 
+        "title ."
+        ". dropdown"
+        ". editor";
 }
 
 #editor {
@@ -10,26 +21,25 @@ html {
     left: 0;
 }
 
-.module-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
 .editor-container {
     position: relative;
-    width: 600px;
-    height: 800px;
-    margin-left: 1vw;
-    margin-top: 1vh;
+    width: 75%;
+    height: 75vh;
+    grid-area: editor;
+    border-style: ridge;
+    border-color: azure;
 }
 
-.select {
-    margin-left: 1vw;
-    margin-top: 1vh;
+.selectpicker {
+    grid-area: dropdown;
+    width: fit-content;
+    margin-bottom: 1vh;
 }
 
 .title {
-    padding-left: 1vw;
-    padding-top: 1vh;
+    display: flex;
+    color: azure;
+    grid-area: title;
+    align-items: center;
+    margin-left: 1vw;
 }
