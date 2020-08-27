@@ -30,9 +30,7 @@ chatForm.addEventListener('submit', event => {
     chatInput.value = "";
 });
 
-socket.on('code-update', code => {
-    editor.setValue(code);
-});
+socket.on('code-update', code => editor.setValue(code));
 
 socket.on('language-change', language => {
     languageSelect.value = language;
@@ -40,6 +38,12 @@ socket.on('language-change', language => {
 });
 
 socket.on('new-message', message => appendMessage(message));
+
+socket.on('sync-chat', chat => {
+    for (i = 0; i < chat.length; i++) {
+        appendMessage(chat[i]);
+    }
+});
 
 function appendMessage(message) {
     var liNode = document.createElement("li");

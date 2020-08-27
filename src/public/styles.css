@@ -10,7 +10,6 @@ html, body {
     grid-template-areas: 
         ". chat-title . dropdown"
         ". chat . editor";
-    overflow: hidden;
 }
 
 #editor {

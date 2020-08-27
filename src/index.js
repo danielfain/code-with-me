@@ -12,11 +12,13 @@ app.get('/', (req, res) => {
 
 var currentCode = "";
 var currentLanguage = "Python";
+var chatLog = [];
 
 io.on('connection', socket => {
-    // The emit below syncs the new client with current state
+    // The emits below syncs the new client with current state
     socket.emit('code-update', currentCode);
     socket.emit('language-change', currentLanguage);
+    socket.emit('sync-chat', chatLog);
 
     socket.on('code-update', code => {
         currentCode = code;
@@ -29,7 +31,12 @@ io.on('connection', socket => {
     });
 
     socket.on('new-message', message => {
+        chatLog.push(message);
         socket.broadcast.emit('new-message', message);
+    });
+
+    socket.on('sync-chat', log => {
+        socket.broadcast.emit('sync-chat', log);
     });
 });
 
