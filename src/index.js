@@ -34,10 +34,6 @@ io.on('connection', socket => {
         chatLog.push(message);
         socket.broadcast.emit('new-message', message);
     });
-
-    socket.on('sync-chat', log => {
-        socket.broadcast.emit('sync-chat', log);
-    });
 });
 
 http.listen(port, () => console.log(`Server listening on port ${port}`));
