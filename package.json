@@ -1,15 +1,14 @@
 {
   "name": "code-with-me",
   "version": "1.0.0",
-  "description": "Real-time code collaboration with a shared editor and chat box",
+  "description": "Real-time code collaboration with a shared editor and chatbox",
   "repository": "git@github.com:danielfain/code-with-me.git",
   "author": "Daniel Fain",
   "license": "MIT",
   "private": false,
   "dependencies": {
     "express": "^4.17.1",
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io": "^2.3.0"
   },
   "scripts": {
     "start": "node src/index.js"
