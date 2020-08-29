@@ -40,14 +40,14 @@ socket.on('language-change', language => {
 socket.on('new-message', message => appendMessage(message));
 
 socket.on('sync-chat', chat => {
-    for (i = 0; i < chat.length; i++) {
+    for (let i = 0; i < chat.length; i++) {
         appendMessage(chat[i]);
     }
 });
 
 function appendMessage(message) {
-    var liNode = document.createElement("li");
-    var textNode = document.createTextNode(message);
+    let liNode = document.createElement("li");
+    let textNode = document.createTextNode(message);
     liNode.appendChild(textNode);
     messages.appendChild(liNode);
 }

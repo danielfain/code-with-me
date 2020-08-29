@@ -10,9 +10,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-var currentCode = "";
-var currentLanguage = "Python";
-var chatLog = [];
+let currentCode = "";
+let currentLanguage = "Python";
+const chatLog = [];
 
 io.on('connection', socket => {
     // The emits below syncs the new client with current state
