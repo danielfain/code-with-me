@@ -1,15 +1,46 @@
 html, body {
     background-color: rgb(22, 22, 29);
     font-family: 'Manrope', sans-serif;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 5% 25% 5% 60% 5%;
-    grid-template-rows: 50px;
-    grid-template-areas: 
-        ". chat-title . dropdown"
-        ". chat . editor";
+@media screen and (min-width: 950px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 2rem 1fr 1fr;
+        grid-template-rows: 50px;
+        grid-template-areas:
+            "chat-title . dropdown dropdown"
+            "chat . editor editor";
+    }
+
+    .title {
+        margin: 1rem;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    html, body {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-rows: 50px 1fr 1fr 50px 1fr;
+        grid-template-areas:
+        "dropdown"
+        "editor"
+        "editor"
+        "chat-title"
+        "chat";
+    }
+
+    .title {
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
 }
 
 #editor {
@@ -32,7 +63,10 @@ html, body {
 .select-container {
     grid-area: dropdown;
     width: inherit;
-    margin-bottom: 1vh;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }
 
 .selectpicker {
@@ -46,22 +80,13 @@ html, body {
 
 .title {
     color: azure;
-    margin: 1rem;
-}
-
-.chat-container {
-    display: grid;
-    grid-template-rows: 50%;
-    grid-template-areas: 
-        "box"
-        "input";
-    grid-area: chat;
 }
 
 .form-container {
     display: flex;
     grid-area: input;
     justify-content: center;
+    margin-top: 1rem;
 }
 
 .form-container button {
@@ -74,12 +99,12 @@ html, body {
 
 #messages {
     grid-area: box;
+    height: 100%;
     background-color: #282a36;
     list-style-type: none;
     border-style: ridge;
     border-color: azure;
-    padding: 0;
-    padding-left: 1vw;
+    padding: 0 0 0 1vw;
     overflow: auto;
 }
 
@@ -87,9 +112,19 @@ html, body {
     color: azure;
 }
 
+.chat-container {
+    display: grid;
+    grid-template-rows: 50%;
+    grid-template-areas:
+        "box"
+        "input";
+    grid-area: chat;
+}
+
 .chat-title {
     display: flex;
     grid-area: chat-title;
     color: azure;
     justify-content: center;
+    align-self: flex-end;
 }
